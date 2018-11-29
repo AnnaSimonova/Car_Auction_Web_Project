@@ -1,0 +1,21 @@
+.car-name {
+	text-align: center;
+}
+
+.car-details {
+	column-count: 1;
+	text-align: center;
+}
+
+.car-details-btn {
+	width: 100px;
+}
+
+#car-header-line {
+	flex-direction: column;
+	align-items: center;
+}
+
+.car-name {
+	width: 100%;
+}

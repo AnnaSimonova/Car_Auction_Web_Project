@@ -1,0 +1,221 @@
+#main-part {
+	  background-color: #f9f9f9;
+}
+
+#car-profile {
+	display: grid;
+	grid-template-areas: 'photo-slider photo-slider photo-slider photo-slider lot-status lot-status'
+	      'photo-slider photo-slider photo-slider photo-slider tech-passport tech-passport'
+	      '. final-value-calc final-value-calc delivery-calc delivery-calc .'
+	      '. total-value total-value total-value total-value .';
+	      grid-auto-columns: 15%;
+	      grid-auto-rows: minmax(min-content, max-content);
+	grid-gap: 30px;
+    padding: 10px;
+    margin: 1%;
+}
+
+#car-profile > div {
+	border: solid thin silver;
+	background-color: #ffffff;
+	padding: 20px;
+}
+
+#photo-slider {
+	grid-area: photo-slider;
+}
+
+#lot-status {
+	grid-area: lot-status;
+}
+
+#tech-passport {
+	grid-area: tech-passport;
+}
+
+#final-value-calc {
+	grid-area: final-value-calc;
+}
+
+#delivery-calc {
+	grid-area: delivery-calc;
+}
+
+#customs-calc {
+	grid-area: customs-calc;
+}
+
+#total-value {
+	grid-area: total-value;
+}
+
+#car-profile h3 {
+	color: black;
+}
+
+#car_title, #table-style-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+#model_name, #buy_now, .field-name, .field-value {
+	width: 50%;
+	padding: 10px;
+}
+
+#model_name p {
+	padding-left: 5%;
+}
+
+#model_name p span {
+	padding-left: 5%;
+}
+
+#buy_now p, .field-value p {
+	text-align: right;
+	padding-right: 15px;
+}
+
+.table-style-info {
+	display: flex;
+	border-top: double rgba(255,84,0,0.8);
+}
+
+.submit-btn {
+	-webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   background-color: rgba(34,34,34,0.8);
+   color: white;
+   padding: 2% 10%;
+   font-size: inherit;
+   font-weight: bold;
+   float: right;
+}
+
+.input-calc {
+	-webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-user-select: none;
+   border-radius: 2px;
+   user-select: none;
+   background: linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   border: 1px solid #AAA;
+   font-size: inherit;
+   padding: 2%;
+   width: 50%;
+}
+
+.tab-btns, #total-value {
+	display: flex;
+}
+
+.tablink {
+	width: 24%;
+	padding: 2% 0;
+	border:none;
+	background-color: lightgray;
+	-webkit-user-:none;
+	-webkit-touch-callout:none;
+	box-shadow: none;
+}
+
+.tablink:hover {
+	color: #ffffff;
+	background-color: #ccc;
+}
+
+input, select {
+	outline: none;
+	padding: 1%;
+}
+
+.clicked {
+	background-color: red;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+
+#total-costs, #final-value-calc .table-style-info .field-name p:last-child,
+#table-style-info-id div p:last-child {
+	font-weight: bold;
+	font-size: 16px;
+	color: black;
+	margin-top: 20%;
+}
+
+#final-value-calc .table-style-info .field-value p,
+#final-value-calc .table-style-info .field-name p {
+	padding: 4% 0;
+}
+
+#final-value-calc .table-style-info .field-value p::after,
+#table-style-info-id .field-value p::after {
+	content: '$';
+}
+
+#photo-carousel {
+	position: relative;
+	 width: 100%;
+	 margin: 1%;
+}
+
+.mySlides {
+	width: 100%;
+	height: 600px;
+	display: none;
+}
+
+#nav-prev:hover, #nav-next:hover {
+	color:#b4aa50;
+	opacity: 1;
+}
+
+#nav-prev, #nav-next {
+	cursor:pointer;
+	padding: 2%;
+	background-color: lightgray;
+	opacity: 0.5;
+	font-size: 24px;
+	z-index: 3;
+	position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%);
+}
+
+#nav-next {
+	right:0%;
+	left: auto;
+}
+
+.thumbnail {
+	height: 70px;
+	margin-left: 1%;
+}
+
+#thumb-carousel {
+	margin-right: 3%;
+	display: flex;
+	flex-wrap: nowrap;
+	overflow: auto;
+}
+
+.border-style {
+	border: solid rgba(255,84,0,0.8);
+}
+
+#total-value p {
+	width: 100%;
+	font-size: 18px;
+	color: black;
+}
+
+#table-style-info-id .field-name {
+	width: 80%;
+}
+
+#table-style-info-id .field-value {
+	width: 20%;
+}
+
+.del-field-val:last-child {
+	padding-top: 60%;
+}

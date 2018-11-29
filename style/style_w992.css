@@ -1,0 +1,26 @@
+nav {
+	font-size: 12px;
+}
+
+.about-us {
+	margin: 2%;
+}
+
+#advant-list div {
+	padding: 2%;
+}
+
+#contact-form {
+	width: 34%;
+	margin: 6% 0 0 3%;
+}
+
+#contacts {
+	margin-top: 2%;
+	margin-right: 2%;
+}
+
+iframe, .mapouter, .gmap_canvas {
+	width: 230px;
+	height: 240px;
+}

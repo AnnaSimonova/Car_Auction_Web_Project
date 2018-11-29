@@ -1,0 +1,22 @@
+.car-block {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+}
+
+.car-img {
+	width: 100%;
+	position: relative;
+  /*top: 0;*/
+  transform: none;
+	float: none;
+}
+
+.car-details {
+	width: 100%;
+	position: relative;
+}
+
+#makes-block {
+	display: none;
+}

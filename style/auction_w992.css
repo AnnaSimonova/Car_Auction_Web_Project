@@ -1,0 +1,20 @@
+#cars-list-wrapper {
+	flex-direction: column;
+	align-items: center;
+}
+
+#filters-block, #cars-list {
+	box-sizing: border-box;
+	width: 80%;
+	margin: 2%;
+}
+
+#cars-list {
+	width: 95%;
+}
+
+select {
+	padding: 1%;
+	margin-top: 2%;
+	margin-right: 2%;
+}

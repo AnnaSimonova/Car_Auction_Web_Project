@@ -1,0 +1,46 @@
+#logo-block {
+	width: 40%;
+}
+
+.choose-form {
+	position: relative;
+	right: auto;
+    margin: auto;
+    top: 155px;
+	width: 280px;
+}
+
+#advant-list div {
+	width: 100%;
+}
+
+.ad-block {
+	flex-direction: column;
+	height: auto;
+}
+
+.ad-block #left, .ad-block #right {
+	width: 100%;
+}
+
+.ad-block img {
+	margin-top: 40px;
+}
+
+#contacts {
+	flex-direction: column-reverse;
+}
+
+#our-contacts {
+	flex-direction: column;
+}
+
+#our-contacts, #contact-form, #contact-details, #map-location {
+	width: 100%;
+	margin-left: 7%;
+	margin-right: 2%;
+}
+
+#myBtn {
+  bottom: 20px;
+}

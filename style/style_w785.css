@@ -1,0 +1,72 @@
+#logo {
+	width: 120px;
+	top: 35%;
+	left: 10%;
+	position: absolute;
+}
+
+nav {
+	flex-direction: column;
+	text-align: center;
+	position: relative;
+	top: 90px;
+	left: -20px;
+}
+
+.nav-point {
+	display: none;
+	border: none;
+}
+
+.dropdown-menu {
+	display: block;
+	/*position: relative;*/
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    /*right:  140px;
+    top: 100px;*/
+}
+
+#menuToggle {
+   	  display: block;
+   	  position: fixed;
+   	  /*margin-top: -20px;*/
+}
+
+.dropdown-content {
+	margin-left: -60%;
+	margin-top: -20%;
+}
+
+#advant-list div {
+	width: 50%;
+}
+
+#advant-list {
+	flex-wrap: wrap;
+}
+
+.ad-block img {
+	vertical-align: center;
+	height: 60%;
+}
+
+#contact-form {
+	width: 30%;
+}
+
+#contact-details, #map-location {
+	width: 49%;
+}
+
+iframe, .mapouter, .gmap_canvas {
+	width: 190px;
+	height: 220px;
+}
+
+iframe {
+	margin-top: 15%;
+}
+

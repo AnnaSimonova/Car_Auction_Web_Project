@@ -1,0 +1,371 @@
+#cars-list-wrapper {
+	display: flex;
+}
+
+#filters-block {
+	width: 25%;
+}
+
+#makes-block {
+	background-color: #ffffff;
+	padding: 10px;
+	margin: 1% 5%;
+	column-count: 5;
+}
+
+#makes-block label {
+	display: block;
+	color: rgba(34,34,34,0.8);
+	text-align: center;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 2%;
+	letter-spacing: 1px;
+}
+
+#makes-block label:hover, .radio_btn:checked + span {
+	font-weight: bold;
+  font-size: 16px;
+	color: black;
+}
+
+#filters-block {
+	/*border: solid thin lightgrey;*/
+	margin: 3%;
+	padding: 2%;
+	box-shadow: 0 5px 18px rgba(0,0,0,.18);
+}
+
+#filters-block h3 {
+	padding-bottom: 5%;
+	border-bottom: double rgba(255,84,0,0.8);
+}
+
+select {
+	padding: 2%;
+}
+
+.price-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.price-field {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-left: 0px;
+}
+
+.price-field input[type=range] {
+    position: absolute;
+}
+
+/*/* Reset style for input range */
+
+.price-field input[type=range] {
+	width: 100%;
+    height: 7px;
+    outline: 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    pointer-events: none;
+    -webkit-appearance: none;
+}
+
+/* Style toddler input range */
+
+.price-field input[type=range]::-webkit-slider-thumb { 
+  /* WebKit/Blink */
+    position: relative;
+    -webkit-appearance: none;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin-top: -4px;
+    background-color: #fff;
+    cursor: pointer;
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 2;
+}
+
+.price-field input[type=range]::-moz-range-thumb { 
+  /* Firefox */
+  position: relative;
+  appearance: none;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  margin-top: -5px;
+  background-color: #fff;
+  cursor: pointer;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 100;
+}
+
+.price-field input[type=range]::-ms-thumb  { 
+  /* IE */
+  position: relative;
+  appearance: none;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  /*border-radius: 50%;*/
+  height: 10px;
+  width: 10px;
+  margin-top: -5px;
+  background-color: #242424;
+  cursor: pointer;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 100;
+}
+
+.price-field input[type=range]::-webkit-slider-runnable-track { 
+  /* WebKit/Blink */
+  width: 188px;
+  height: 2px;
+  cursor: pointer;
+  background: #555;
+  border-radius: 5px;
+}
+
+.price-field input[type=range]::-moz-range-track { 
+  /* Firefox */
+  width: 188px;
+  height: 2px;
+  cursor: pointer;
+  background: #242424;
+  border-radius: 5px;
+}
+
+.price-field input[type=range]::-ms-track { 
+  /* IE */
+  width: 188px;
+  height: 2px;
+  cursor: pointer;
+  background: #242424;
+  border-radius: 5px;
+}
+
+/* Style for input value block */
+
+.price-wrap {
+  display: flex;
+  color: #242424;
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.price-wrap-1, 
+.price-wrap-2 {
+  display: flex;
+  margin-left: 0px;
+}
+
+/* Style for active state input */
+    
+.price-field input[type=range]::-webkit-slider-runnable-track  {
+  width: 100%;
+  height: 0.4em;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background-color: silver;
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+
+.price-field input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  /*border: 0px solid #000000;*/
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgba(255,84,0,0.8);
+  cursor: pointer;
+  /*-webkit-appearance: none;*/
+  margin-top: -0.5em;
+}
+
+#other-filters .filter-name {
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#other-filters .filter-name::before {
+	content: "\2295  ";
+}
+
+#other-filters .filter-name:hover {
+	color: rgba(255,84,0,0.8);
+}
+
+.year_checkbox {
+	margin-left: 5%;
+}
+
+#other-filters input {
+	margin-right: 3%;
+}
+
+.inputs {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+.red-color {
+	color: rgba(255,84,0,0.8);;
+}
+
+#cars-list {
+	width: 75%;
+	margin: 3%;
+	margin-left: 0;
+}
+
+.car_block {
+	min-height: 250px;
+	padding: 2%;
+	box-shadow: 0 5px 18px rgba(0,0,0,.1);
+	display: none;
+}
+
+#car-header-line {
+	display: flex;
+	justify-content: space-between;
+  align-content: center;
+}
+
+.car_block h2 {
+	margin: 2%;
+}
+
+.car-img {
+  width: 32%;
+	float: left;
+}
+
+.car-details {
+	column-count: 2;
+	margin: 0.5% 1%;
+	padding-left: 2%;
+	display: inline-block;
+	width: 66%;
+  align-content: center;
+}
+
+.car-details p {
+  margin: 4px;
+}
+
+.car-descr span {
+	color: black;
+}
+
+.car-name:active, .car-name:visited, .car-name:link, .car-name:hover {
+  width: 40%;
+  margin-left: 5%;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#auction-info-block {
+	width: 60%;
+	padding: 2%;
+	padding-bottom: 0;
+	border: solid thin lightgrey;
+	box-shadow: inset 0 5px 18px rgba(0,0,0,.1);
+}
+
+.auction-info-details {
+	display: inline;
+	margin-left: 3%;
+}
+
+.auction-info-details span {
+	font-size: 16px;
+	color: green;
+    font-weight: 900;
+}
+
+#auction-date {
+	display: block;
+}
+
+#auction-date span {
+	font-size: inherit;
+	border: none;
+	color: inherit;
+}
+
+.car-details-btn {
+	-webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   background-color: lightgrey;
+   color: black;
+   width: 90px;
+   margin: 2%;
+   font-size: inherit;
+   cursor: pointer;
+}
+
+#prebid-btn {
+	color: green;
+	font-weight: bold;
+}
+
+.paginator {
+	text-align: right;
+}
+
+.paginator > span {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 7px 10px;
+    cursor: pointer;
+    border: solid thin lightgrey;
+    color: black;
+}
+
+.paginator_active {
+    background-color: rgba(255,84,0,0.8);
+}
+
+#first-page, #last-page {
+	height: 1em;
+}
+
+.hidden, .filtered {
+	display: none;
+}
+
+#emptyListReply {
+	font-size: 16px;
+	text-align: center;
+	padding: 2%;
+	box-shadow: 0 5px 18px rgba(0,0,0,.1);
+}
+
+.radio_btn {
+  visibility: hidden;
+}
+

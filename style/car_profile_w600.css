@@ -1,0 +1,13 @@
+#car-profile {
+	display: grid;
+	grid-template-areas: 'photo-slider'
+	      'lot-status'
+	      'tech-passport'
+	      'final-value-calc'
+	      'delivery-calc'
+	      'total-value';
+	      grid-auto-columns: 100%;
+	grid-gap: 30px;
+    padding: 10px;
+    margin: 1%;
+}
