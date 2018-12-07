@@ -4,116 +4,110 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Carbid – Buy Car from Auction</title>
-	<link rel="import" href="header.html">
-	<link rel="import" href="footer.html">
-	<link rel="stylesheet" href="style/home_style.css"">
+	<link rel="stylesheet" href="style/home_style.css">
 	<link rel="stylesheet" href="style/style_w992.css" media="(max-width: 992px)">
 	<link rel="stylesheet" href="style/style_w785.css" media="(max-width: 785px)">
 	<link rel="stylesheet" href="style/style_w600.css" media="(max-width: 599px)">
-	<script src="js/common.js" async></script>
-	<script src="js/home.js" async></script>
+	<script src="js/common.js" defer></script>
+	<script src="js/home.js" defer></script>
 </head>
 <body>
-	<button onclick="topFunction()" id="myBtn" title="Go to top">&#9650;</button>
-	<header>
-		<a id="logo-block" href="index.html" title="Carbid"><img id="logo" src="images/cb_logo.png" width=100%></a>
-		<nav>
-			<div class='nav-point'><a class='nav-a' href='index.html#about-us'>ABOUT US</a></div>
-			<div class='nav-point'><a class='nav-a' href='auction.html'>AUCTION</a></div>
-			<div class='nav-point'><a class='nav-a' href='car_profile.html?id=7#delivery-calc'>CALCULATOR</a></div>
-			<div class='nav-point'><a class='nav-a' href='#'>REPORTS</a></div>
-			<div class='nav-point' id='nav-other'><a class='nav-a' href='#'>OTHER <span>&#9660;</span></a>
-				<div class="dropdown-content">
-					<a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Register</a>
-					<a href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</a>
-					<a href="#contacts">Contact us</a>
-					<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" method="POST" action='backend/includes/signup.php'>
-    <div class="container">
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-      <label for="email"><b>Email</b></label>
-      <input type="email" id="signup_email" class='text-input' placeholder="Enter Email" name="email" required>
-
-      <label for="username"><b>Username</b></label>
-      <input type="text" id="signup_username" class='text-input' placeholder="Enter username" name="username" required>
-
-      <label for="password"><b>Password</b></label>
-      <input type="password" id="signup_password" placeholder="Enter Password" name="password" required>
-
-      <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-       -->
-      <!-- <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label> -->
-      <div class="clearfix">
-        <button type="submit" class="signup_submit_btn" onclick="sendData({email:document.getElementById('signup_email').value, username:document.getElementById('signup_username').value, password:document.getElementById('signup_password').value})">Sign Up</button>
-      </div>
-    </div>
-  </form>
-</div>
-<div id="id02" class="modal">
-  
-  <form class="modal-content animate" method="POST" action="backend/includes/login.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-    </div>
-
-    <div class="container">
-      <label for="email"><b>Email</b></label>
-      <input type="email" class='text-input' id="login_email" placeholder="Enter Email" name="email" required>
-
-      <label for="password"><b>Password</b></label>
-      <input type="password" id="login_password" placeholder="Enter Password" name="password" required>
-        
-      <button type="submit" class='login_submit_btn' onclick="sendData({email:document.getElementById('login_email').value, password:document.getElementById('login_password').value})">Login</button>
-      <!-- <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label> -->
-    </div>
-
-    <!-- <div class="container">
-      <span class="psw"><a href="#">Forgot password?</a></span>
-    </div> -->
-  </form>
-</div>
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#9650;</button>
+<header>
+	<a id="logo-block" href="index.html" title="Carbid"><img id="logo" src="images/cb_logo.png" width=100%></a>
+	<nav>
+		<div class='nav-point'><a class='nav-a' href='index.html#about-us'>ABOUT US</a></div>
+		<div class='nav-point'><a class='nav-a' href='auction.html'>AUCTION</a></div>
+		<div class='nav-point'><a class='nav-a' href='car_profile.html?id=7#delivery-calc'>CALCULATOR</a></div>
+		<div class='nav-point' id='nav-other'><a class='nav-a' href='#' onclick="showDropdown()">OTHER <span>&#9660;</span></a>
+			<div class="dropdown-content">
+				<a href="#" id='register' onclick="document.getElementById('id01').style.display='block'">REGISTER</a>
+				<a href="#" id='login' onclick="document.getElementById('id02').style.display='block'">LOGIN</a>
+				<a href="#contacts" id="contacts-link">CONTACT US</a>
+			</div>
+		</div>
+		<div id="menuToggle" onclick='toggleDropdownMenu()'>
+			<input type="checkbox"/>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</nav>
+	<div id="id01" class="modal">
+		<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" method="POST" action='backend/includes/signup.php'>
+			<div class="container">
+				<h1>Sign Up</h1>
+				<p>Please fill in this form to create an account</p>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="email" id="signup_email" class='text-input' placeholder="Enter Email" name="email" required>
+				<label><b>Username</b></label>
+				<input type="text" id="signup_username" class='text-input' placeholder="Enter username" name="username" required>
+				<label><b>Password</b></label>
+				<input type="password" id="signup_password" placeholder="Enter Password" name="password" required>
+				<div class="clearfix">
+					<button type="submit" class="signup_submit_btn" onclick=
+                            "sendData({email:document.getElementById('signup_email').value,
+                            username:document.getElementById('signup_username').value,
+                            password:document.getElementById('signup_password').value})">Sign Up</button>
 				</div>
 			</div>
-			<div id="menuToggle" onclick='toggleDropdownMenu()'>
-				<input type="checkbox"/>
-				<span></span>
-    		    <span></span>
-    		    <span></span>
-  		    </div>	
-		</nav>
-		<!-- <form id="search-form" action='auction.html' method='GET'>
-				<div id='search'>
-				<button id='search-icon'><img src='./images/search.png' style='width:22px; height:22px'></button>
-				<input type="text" id='search-input' name="search" placeholder="Search by VIN or make" required></div></form> -->
-			</header>
-	<div id="main-part">
+		</form>
+	</div>
+	<div id="id02" class="modal">
+		<form class="modal-content animate" method="POST" action="backend/includes/login.php">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
+			<div class="container">
+				<h1>Sign In</h1>
+				<p>Please fill in this form to login</p>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="email" class='text-input' id="login_email" placeholder="Enter Email" name="email" required>
+				<label><b>Password</b></label>
+				<input type="password" id="login_password" placeholder="Enter Password" name="password" required>
+				<div class="clearfix">
+					<button type="submit" class='login_submit_btn' onclick=
+                            "sendData({email:document.getElementById('login_email').value,
+                            password:document.getElementById('login_password').value})">Login</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<button id='search-icon'><img src='./images/search.png' style='width:30px; height:30px' onclick=
+            "document.getElementById('search-form').style.display='block'"></button>
+	<div id="search-form" class="modal">
+		<span onclick="document.getElementById('search-form').style.display='none'" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" method="GET" action='auction.html'>
+			<div class="container cont-flex">
+				<input type="text" id='search-input' name="search" placeholder="Search vehicle by VIN or make" required>
+				<button id="sbm_btn"><img src='./images/search.png' style='width:35px; height:35px' onclick=
+                        "document.getElementById('search-form').style.display='block'"></button>
+			</div>
+		</form>
+	</div>
+</header>
+<div id="main-part">
 	<main>
 		<div class="home">
 			<!-- Car search form -->
 			<div class="choose-form">
-                <div id='choose-form-header'><h3>Find Your Car</h3></div>
-                <form role="search" method="get" action="auction.html" class="vehicle-search-form">
-                	<p><label title=""><b>Vehicle Type: </b><br></label>
-                		<select name="vehicle_type" id="vehicle_type" class="select_form"></select></p>
-                	<p><label title=""><b>Make: </b><br></label>
-                		<select name="make" id="make" class="select_form"></select></p>
-                	<p><label title=""><b>Model: </b><br></label>
-                		<select name="model" id="model" class="select_form" disabled><option class="option-model" value="">All models</option></select></p>
-                	<button class="submit_btn" id="car-search-submit">Search</button>
-                </form>
-            </div>
-        </div>
+				<div id='choose-form-header'><h3>Find Your Car</h3></div>
+				<form role="search" method="GET" action="auction.html" class="vehicle-search-form">
+					<p><label title=""><b>Vehicle Type: </b><br></label>
+						<select name="vehicle_type" id="vehicle_type" class="select_form"></select></p>
+					<p><label title=""><b>Make: </b><br></label>
+						<select name="make" id="make" class="select_form"></select></p>
+					<p><label title=""><b>Model: </b><br></label>
+						<select name="model" id="model" class="select_form" disabled><option class="option-model" value="">All models</option></select></p>
+					<button class="submit_btn" id="car-search-submit">Search</button>
+				</form>
+			</div>
+		</div>
 		<div id="about-us">
-			<h2>Our services</h2>
-			<p></p>
+			<h2>Our services</h2><p></p>
 			<p id='description-serv'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
 			<div id='advant-list'>
 				<div>
@@ -141,7 +135,6 @@
 				<img id="car-move" src="./images/car.png">
 			</div>
 		</div>
-		
 		<div class='ad-block'>
 			<div id='left'>
 				<img src='./images/audi.png'>
@@ -158,26 +151,25 @@
 					<img src='./images/mersedes.png'>
 				</div>
 			</div>
-			</div>
 	</main>
 	<footer>
 		<div id='contacts'>
 			<div id='contact-form'>
 				<h3>SEND US MESSAGE</h3>
-				<form id='contact-us' action="#" target="_blank">
-      				<p><label><input type="Email" placeholder="Email" required name="Email"></label></p>
-        			<p><label><input type="text" placeholder="Subject" required name="Subject"></label></p>
-        			<p><textarea rows="5" cols="50" placeholder="Your message" required name="Message"></textarea></p>
-        			<p><button type="submit" id='contact-us-submit'>Send message</button></p>
-      			</form>
+				<form id='contact-us' action="#contacts">
+					<p><label><input type="Email" placeholder="Email" required name="Email"></label></p>
+					<p><label><input type="text" placeholder="Subject" required name="Subject"></label></p>
+					<p><textarea rows="5" cols="50" placeholder="Your message" required name="Message"></textarea></p>
+					<p><button type="submit" id='contact-us-submit'>Send message</button></p>
+				</form>
 			</div>
 			<div id='our-contacts'>
 				<div id='contact-details'>
 					<h3>CONTACT INFO</h3>
-                        <p>Lorem Ipsum has been the industry's </p>
-                        <p id='phone'>+0123456789</p>
-                        <p id='email'>info@templaza.com</p>
-                        <p id='address'>via G. Cesare 87/A 47838 Riccione Italia</p>
+						<p>Lorem Ipsum has been the industry's</p>
+						<p id='phone'>+0123456789</p>
+						<p id='email'>info@templaza.com</p>
+						<p id='address'>via G. Cesare 87/A 47838 Riccione Italia</p>
 				</div>
 				<div id='map-location'>
 					<div class="mapouter">
@@ -192,10 +184,10 @@
 		<div id='smm'>
 			<a href="https://twitter.com" target="_blank"><img src="./images/twitter.png"></a>
 			<a href="https://www.facebook.com/" target="_blank"><img src="./images/facebook.png"></a>
-			<a href="https://www.linkedin.com/" target="_blank"><img src="./images/linkedin.png" style="width: auto";></a>
+			<a href="https://www.linkedin.com/" target="_blank"><img src="./images/linkedin.png" style="width: auto"></a>
 			<!-- <a href="https://www.instagram.com/" target="_blank"><img src="./images/instagram.png"></a> -->
 		</div>
-		</footer>
-	</div>
+	</footer>
+</div>
 </body>
 </html>

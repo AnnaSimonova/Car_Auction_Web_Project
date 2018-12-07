@@ -2,12 +2,16 @@
 	width: 40%;
 }
 
+nav {
+	left: 60%;
+}
+
 .choose-form {
+	width: 280px;
 	position: relative;
 	right: auto;
-    margin: auto;
-    top: 155px;
-	width: 280px;
+	top: 155px;
+	margin: auto;
 }
 
 #advant-list div {
@@ -15,8 +19,8 @@
 }
 
 .ad-block {
-	flex-direction: column;
 	height: auto;
+	flex-direction: column;
 }
 
 .ad-block #left, .ad-block #right {
@@ -42,5 +46,5 @@
 }
 
 #myBtn {
-  bottom: 20px;
+	bottom: 20px;
 }
