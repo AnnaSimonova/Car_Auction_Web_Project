@@ -13,8 +13,8 @@ xhttpVehTypes.onreadystatechange = function() {
 		const vehTypesData = JSON.parse(this.responseText);
 	}
 };
-xhttpLocations.open("GET", "./backend/includes/selectType.php", true);
-xhttpLocations.send();
+xhttpVehTypes.open("GET", "./backend/includes/selectType.php", true);
+xhttpVehTypes.send();
 
 const serviceFee = 600;
 
@@ -140,7 +140,7 @@ function fillCarProfilePage(vehicle) {
 	const preBidBtn = document.createElement('button');
 	preBidBtn.setAttribute('class', 'submit-btn');
 	preBidBtn.setAttribute('id', 'pre-bid');
-	// preBidBtn.setAttribute('onclick', 'window.location.href=\'car_profile.html?id=' + auto.id+'\'');
+	preBidBtn.setAttribute('onclick', "document.getElementById('prebid-modal-"+vehicle['id']+"').style.display='block'");
 	preBidBtn.innerHTML = 'Pre-Bid';
 
 	const techPassport = document.createElement('div');
@@ -187,6 +187,7 @@ function fillCarProfilePage(vehicle) {
 	lotStatus.appendChild(lotStatusInfo);
 	lotStatus.appendChild(tableStyleInfo);
 	lotStatus.appendChild(preBidBtn);
+	setPreBid(lotStatus, vehicle);
 	tableStyleInfo2.appendChild(fieldName2);
 	tableStyleInfo2.appendChild(fieldValue2);
 	techPassport.appendChild(techPassportHeader);
@@ -486,8 +487,8 @@ function calculateDeliveryCosts() {
 }
 
 function showTotalValue() {
-  const totalValue = parseInt(document.getElementById('total-costs').innerHTML) +
-	parseInt(document.querySelector('.del-field-val:last-child').innerHTML);
-  const elementToAdd = document.querySelector('#total-value p:last-child');
-  elementToAdd.innerHTML = totalValue + '$';
+	const totalValue = parseInt(document.getElementById('total-costs').innerHTML) +
+		parseInt(document.querySelector('.del-field-val:last-child').innerHTML);
+	const elementToAdd = document.querySelector('#total-value p:last-child');
+	elementToAdd.innerHTML = totalValue + '$';
 }

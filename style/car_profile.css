@@ -90,6 +90,7 @@
    font-size: inherit;
    font-weight: bold;
    float: right;
+	cursor: pointer;
 }
 
 .input-calc {
