@@ -1,18 +1,8 @@
 const xhttpLocations = new XMLHttpRequest();
-xhttpLocations.onreadystatechange = function() {
-	if (this.readyState === 4 && this.status === 200) {
-		const locationData = JSON.parse(this.responseText);
-	}
-};
 xhttpLocations.open("GET", "./backend/includes/selectLocations.php", true);
 xhttpLocations.send();
 
 const xhttpVehTypes = new XMLHttpRequest();
-xhttpVehTypes.onreadystatechange = function() {
-	if (this.readyState === 4 && this.status === 200) {
-		const vehTypesData = JSON.parse(this.responseText);
-	}
-};
 xhttpVehTypes.open("GET", "./backend/includes/selectType.php", true);
 xhttpVehTypes.send();
 
@@ -473,8 +463,8 @@ function calculateDeliveryCosts() {
 		afloatDelivery = afloatDelivery*1.3;
 	}
 	if (largeVehicles.includes(vehicleType.selectedIndex)) {
-		ashoreDelivery = ashoreDelivery*1.2;
-		afloatDelivery = afloatDelivery*1.5;
+		ashoreDelivery = parseInt(ashoreDelivery*1.2);
+		afloatDelivery = parseInt(afloatDelivery*1.5);
 	}
 	const totalDelivery = ashoreDelivery + afloatDelivery;
 

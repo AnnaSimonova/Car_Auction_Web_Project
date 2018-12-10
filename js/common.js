@@ -1,11 +1,6 @@
 "use strict";
 
 const xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-	if (this.readyState === 4 && this.status === 200) {
-		const database = JSON.parse(this.responseText);
-	}
-};
 xhttp.open("GET", "./backend/includes/selectVehicles.php", true);
 xhttp.send();
 
@@ -125,7 +120,6 @@ function showTypeMakeModel(database) {
 		makeList.selectedIndex = 0;
 		modelList.selectedIndex = 0;
 		modelList.setAttribute('disabled', 'disabled');
-		setCarList(database);
 	};
 
 	makeList.onchange = function() {
@@ -146,11 +140,9 @@ function showTypeMakeModel(database) {
 			modelList.setAttribute('disabled', 'disabled');
 			modelList.selectedIndex = 0;
 		}
-		setCarList(database);
 	};
 
 	modelList.onchange = function() {
-		setCarList(database);
 	}
 }
 
@@ -223,11 +215,11 @@ function setPreBid(elem, vehicle) {
 	elem.appendChild(modal);
 }
 
- function sendData(data) {
-  const XHR = new XMLHttpRequest();
-  XHR.open('POST', '../backend/includes/signup.php');
-  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  XHR.send(data);
+function sendData(data) {
+	const XHR = new XMLHttpRequest();
+	XHR.open('POST', '../backend/includes/signup.php');
+	XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	XHR.send(data);
 }
 
 function formatStr(str) {

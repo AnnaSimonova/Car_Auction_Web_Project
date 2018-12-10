@@ -7,8 +7,7 @@
 .car-img {
 	width: 100%;
 	position: relative;
-  /*top: 0;*/
-  transform: none;
+	transform: none;
 	float: none;
 }
 

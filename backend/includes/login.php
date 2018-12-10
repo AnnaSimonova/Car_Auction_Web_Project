@@ -27,7 +27,8 @@ if(isset($_POST)) {
   } else {
       // Failure
       $_SESSION["message"] = "E-mail/password not found.";
-      echo '<h3>Login failed!</h3><p>E-mail/password not found.</p>';
+//      echo '<h3>Login failed!</h3><p>E-mail/password not found.</p>';
+		redirect_to("../../index.html");
     }
   }
 } else { }

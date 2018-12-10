@@ -56,9 +56,9 @@ function generateMakes(database) {
 		let label = document.createElement('label');
 		let span = document.createElement('span');
 		let input = document.createElement('input');
-		input.setAttribute('type', 'radio');
+		input.setAttribute('type', 'checkbox');
 		input.setAttribute('class', 'radio_btn');
-		input.setAttribute('oninput', "setCarList(setDB())");
+		input.setAttribute('onclick', "setCarList(setDB())");
 		input.setAttribute('name', value);
 		label.appendChild(input);
 		span.innerHTML = value;
@@ -66,6 +66,89 @@ function generateMakes(database) {
 		p.appendChild(label);
 		makesBlock.appendChild(p);
 	});
+}
+
+// Load available types/makes/models in select lists
+function showTypeMakeModel(database) {
+	let selectTypeList = '<option class="option-type" value="">All types</option>';
+	let selectMakeList = '<option class="option-make" value="">All makes</option>';
+	let selectModelList = '<option class="option-model" value="">All models</option>';
+
+	let uniqueTypes = [];
+	let types = database.map(function(value) {
+		if (!uniqueTypes.includes(value['vehicle_type'])) {
+			selectTypeList += '<option class="option-type" value="' + value['vehicle_type']+ '">' + value['vehicle_type'] + '</option>';
+			uniqueTypes.push(value['vehicle_type']);
+		}
+	});
+	const vehicleType = document.getElementById("vehicle_type");
+	vehicleType.innerHTML = selectTypeList;
+
+	let uniqueMakes = [];
+	let makes = database.map(function(value) {
+		if (!uniqueMakes.includes(value['make'])) {
+			selectMakeList += '<option class="option-make" value="' + value['make']+ '">' + value['make'] + '</option>';
+			uniqueMakes.push(value['make']);
+		}
+	});
+
+	const makeList = document.getElementById("make");
+	makeList.innerHTML = selectMakeList;
+	const modelList = document.getElementById("model");
+	modelList.innerHTML = selectModelList;
+
+	vehicleType.onchange = function() {
+		let selectMakeList = '<option class="option-make" value="">All makes</option>';
+		if (vehicleType.selectedIndex > 0) {
+			let temp = [];
+			database.map(function(item) {
+				if (item['vehicle_type'] === vehicleType.options[vehicleType.selectedIndex].value) {
+					if (!temp.includes(item['make'])) {
+						selectMakeList += '<option class="option-make" value="' + item['make'] + '">' + item['make'] + '</option>';
+						temp.push(item['make']);
+					}
+				}
+			});
+		} else {
+			let temp = [];
+			database.map(function(item) {
+				if (!temp.includes(item['make'])) {
+					selectMakeList += '<option class="option-make" value="' + item['make'] + '">' + item['make'] + '</option>';
+					temp.push(item['make']);
+				}
+			});
+		}
+		makeList.innerHTML = selectMakeList;
+		makeList.selectedIndex = 0;
+		modelList.selectedIndex = 0;
+		modelList.setAttribute('disabled', 'disabled');
+		setCarList(database);
+	};
+
+	makeList.onchange = function() {
+		let selectModelList = '<option class="option-model" value="">Select vehicle model</option>';
+		if (makeList.selectedIndex > 0) {
+			let temp = [];
+			database.map(function(item) {
+				if (item['make'] === makeList.options[makeList.selectedIndex].value) {
+					if (!temp.includes(item['model'])) {
+						selectModelList += '<option class="option-model" value="' + item['model'] + '">' + item['model'] + '</option>';
+						temp.push(item['model']);
+					}
+				}
+			});
+			modelList.removeAttribute('disabled');
+			modelList.innerHTML = selectModelList;
+		} else {
+			modelList.setAttribute('disabled', 'disabled');
+			modelList.selectedIndex = 0;
+		}
+		setCarList(database);
+	};
+
+	modelList.onchange = function() {
+		setCarList(database);
+	}
 }
 
 // Filter ranges (price)
@@ -206,16 +289,47 @@ function addFilters() {
 	// from select form on home page
 	const getParams = getParameters();
 	for (prop in getParams) {
-		if ((prop === 'vehicle_type' || prop === 'make' || prop === 'model') && getParams[prop] !== "undefined" && getParams[prop] !== "") {
+		if ((prop === 'vehicle_type' || prop === 'make' || prop === 'model') && (getParams[prop])) {
 			filtersList.push(['select', prop, getParams[prop]]);
 		}
 	}
+
 	return filtersList;
+}
+
+function setSelectedFilters(filterValue) {
+	let selFiltersAll = document.getElementById("selected-filters");
+	selFiltersAll.innerText = "";
+
+	let createBlock = function(value) {
+		let selFilter = document.createElement("div");
+		selFilter.setAttribute("class", "selected-filter");
+		selFilter.innerHTML = value;
+		let removeFilterBtn = document.createElement('label');
+		let span = document.createElement('span');
+		let input = document.createElement('input');
+		input.setAttribute('type', 'checkbox');
+		input.setAttribute('class', 'check_btn');
+		input.setAttribute('oninput', "setCarList(setDB())");
+		input.setAttribute('name', value);
+		span.innerHTML = "&times;";
+		span.setAttribute("class", "remove-filter");
+		removeFilterBtn.appendChild(span);
+		removeFilterBtn.appendChild(input);
+		selFilter.appendChild(removeFilterBtn);
+		selFiltersAll.appendChild(selFilter);
+	};
+	Array.isArray(filterValue) ?
+		filterValue.forEach(function (item) {
+			createBlock(item);
+		}) :
+		createBlock(filterValue);
 }
 
 function setCarList(database) {
 	const list  = document.getElementById('cars-list');
-	list.innerHTML = '<div class="paginator" onclick="pagination(event)"></div>';
+	list.innerHTML = '<div id="carsListPrefix">' +
+		'<div id="selected-filters"></div><div class="paginator" onclick="pagination(event)"></div></div>';
 
 	let pagCounter = 1;
 	const filters = addFilters();

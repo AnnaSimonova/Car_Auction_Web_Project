@@ -1,5 +1,5 @@
 #main-part {
-	  background-color: #f9f9f9;
+	background-color: #f9f9f9;
 }
 
 #car-profile {
@@ -8,17 +8,17 @@
 	      'photo-slider photo-slider photo-slider photo-slider tech-passport tech-passport'
 	      '. final-value-calc final-value-calc delivery-calc delivery-calc .'
 	      '. total-value total-value total-value total-value .';
-	      grid-auto-columns: 15%;
-	      grid-auto-rows: minmax(min-content, max-content);
+	grid-auto-columns: 15%;
+	grid-auto-rows: minmax(min-content, max-content);
 	grid-gap: 30px;
-    padding: 10px;
-    margin: 1%;
+	padding: 10px;
+	margin: 1%;
 }
 
 #car-profile > div {
+	padding: 20px;
 	border: solid thin silver;
 	background-color: #ffffff;
-	padding: 20px;
 }
 
 #photo-slider {
@@ -83,27 +83,27 @@
 
 .submit-btn {
 	-webkit-appearance: button;
-   -webkit-border-radius: 2px;
-   background-color: rgba(34,34,34,0.8);
-   color: white;
-   padding: 2% 10%;
-   font-size: inherit;
-   font-weight: bold;
-   float: right;
+	-webkit-border-radius: 2px;
+	background-color: rgba(34,34,34,0.8);
+	color: white;
+	padding: 2% 10%;
+	font-size: inherit;
+	font-weight: bold;
+	float: right;
 	cursor: pointer;
 }
 
 .input-calc {
+	width: 50%;
+	padding: 2%;
 	-webkit-appearance: button;
-   -webkit-border-radius: 2px;
-   -webkit-user-select: none;
-   border-radius: 2px;
-   user-select: none;
-   background: linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
-   border: 1px solid #AAA;
-   font-size: inherit;
-   padding: 2%;
-   width: 50%;
+	-webkit-border-radius: 2px;
+	-webkit-user-select: none;
+	border-radius: 2px;
+	user-select: none;
+	background: linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	border: 1px solid #AAA;
+	font-size: inherit;
 }
 
 .tab-btns, #total-value {
@@ -113,9 +113,9 @@
 .tablink {
 	width: 24%;
 	padding: 2% 0;
-	border:none;
+	border: none;
 	background-color: lightgray;
-	-webkit-user-:none;
+	-webkit-user-select:none;
 	-webkit-touch-callout:none;
 	box-shadow: none;
 }
@@ -157,8 +157,8 @@ input, select {
 
 #photo-carousel {
 	position: relative;
-	 width: 100%;
-	 margin: 1%;
+	width: 100%;
+	margin: 1%;
 }
 
 .mySlides {
@@ -173,17 +173,22 @@ input, select {
 }
 
 #nav-prev, #nav-next {
-	cursor:pointer;
+	position: absolute;
+	top: 50%;
+	left: 0%;
+	transform: translate(0%,-50%);
+	-ms-transform: translate(-0%,-50%);
+
 	padding: 2%;
 	background-color: lightgray;
 	opacity: 0.5;
 	font-size: 24px;
+	cursor:pointer;
 	z-index: 3;
-	position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%);
 }
 
 #nav-next {
-	right:0%;
+	right:0;
 	left: auto;
 }
 
