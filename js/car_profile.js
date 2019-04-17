@@ -69,7 +69,7 @@ function fillCarProfilePage(vehicle) {
 	for (let i = 0; i < 10; i++) {
 		let sliderImage = document.createElement('img');
 		sliderImage.setAttribute('class', 'mySlides');
-		sliderImage.setAttribute('src', 'images/catalog/'+vehicle['id']+'/'+i+'.JPEG');
+		sliderImage.setAttribute('src', 'images/catalog/'+vehicle['id']+'/'+i+'.jpeg');
 		photoCarousel.appendChild(sliderImage);
 	}
 
@@ -88,7 +88,7 @@ function fillCarProfilePage(vehicle) {
 	for (let i = 0; i < 10; i++) {
 		let thumb = document.createElement('img');
 		thumb.setAttribute('class', 'thumbnail');
-		thumb.setAttribute('src', 'images/catalog/'+vehicle['id']+'/'+i+'.JPEG');
+		thumb.setAttribute('src', 'images/catalog/'+vehicle['id']+'/'+i+'.jpeg');
 		thumb.setAttribute('onclick', "currentDiv("+i+")");
 		thumbCarousel.appendChild(thumb);
 	}
